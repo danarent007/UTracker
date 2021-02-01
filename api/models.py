@@ -21,8 +21,8 @@ class Meter(models.Model):
 class Reading(models.Model):
     meter = models.ForeignKey(Meter, on_delete=models.CASCADE)
     value = models.FloatField()
-    time = models.CharField(blank=True, max_length=60)
-    date = models.CharField(blank=True, max_length=60)
+    time = models.TimeField()
+    date = models.DateField()
 
     def __str__(self):
         return self.id
