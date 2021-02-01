@@ -13,7 +13,25 @@ class User(models.Model):
 class Meter(models.Model):
     name = models.CharField(max_length=30)
     location = models.CharField(max_length=100)
+    owner = models.CharField(max_length=60)
 
     def __str__(self):
         return self.name
+    
+class Reading(models.Model):
+    meter = models.ForeignKey(Meter, on_delete=models.CASCADE)
+    value = models.FloatField()
+    time = models.CharField(blank=True, max_length=60)
+    date = models.CharField(blank=True, max_length=60)
+
+    def __str__(self):
+        return self.id
+
+
+class UserMeter(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    meter = models.ForeignKey(Meter, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user
     

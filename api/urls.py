@@ -7,6 +7,10 @@ from . import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'meters', views.MeterViewSet)
+router.register(r'reading', views.ReadingViewSet)
+router.register(r'usermeters', views.UserMeterViewSet)
+
+
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
