@@ -1,7 +1,7 @@
 # serializers.py
 
 from rest_framework import serializers
-from .models import User, Meter, Reading, UserMeter
+from .models import User, Meter, Reading, UserMeter, TestModel
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -22,5 +22,10 @@ class UserMeterSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = UserMeter
         fields = ('id','user','meter')
+
+class TestModelSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = TestModel
+        fields = ('device','time','data','seqNumber')
 
 

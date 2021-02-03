@@ -34,4 +34,13 @@ class UserMeter(models.Model):
 
     def __str__(self):
         return self.user
+
+class TestModel(models.Model):
+    device = models.CharField(max_length=60)
+    time = models.CharField(max_length=60)
+    data = models.CharField(max_length=60)
+    seqNumber = models.CharField(max_length=60)
+
+    def __str__(self):
+        return self.id
     
